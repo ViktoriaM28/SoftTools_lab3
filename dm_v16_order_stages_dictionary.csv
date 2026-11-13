@@ -1,0 +1,9 @@
+поле,тип в pandas,тип в DataLens,пример
+order_id,object,Строка,e481f51cbdc54678b7cc49136f2d6af7
+month,object,Дата,2017-10-01
+region,object,Строка,Юго-Восток
+weekday,object,Строка,1. Понедельник
+approval_hours,float64,Дробное число,0.17833333333333334
+handling_days,float64,Дробное число,2.3664930555555554
+transit_days,float64,Дробное число,6.062650462962963
+total_days,float64,Дробное число,8.436574074074073

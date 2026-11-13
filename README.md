@@ -78,16 +78,7 @@ WHERE order_status = 'delivered'
 |---|---|
 | Индикатор «Полный цикл, дн» | AVG([total_days]) |
 | Столбчатая «Длительность этапов» | X — region; Y — AVG([handling_days]), AVG([transit_days]) |
-| Круговая «Более длительный этап» | IF ISNULL([handling_days]) OR ISNULL([transit_days])
-    THEN "Нет данных"
-ELSEIF [handling_days] < 0 OR [transit_days] < 0
-    THEN "Некорректные даты"
-ELSEIF [transit_days] > [handling_days]
-    THEN "Транспортировка"
-ELSEIF [handling_days] > [transit_days]
-    THEN "Сборка"
-ELSE "Одинаковая длительность"
-END |
+| Круговая «Более длительный этап» | IF ISNULL([handling_days]) OR ISNULL([transit_days]) THEN "Нет данных" ELSEIF [handling_days] < 0 OR [transit_days] < 0 THEN "Некорректные даты" ELSEIF [transit_days] > [handling_days] THEN "Транспортировка" ELSEIF [handling_days] > [transit_days] THEN "Сборка" ELSE "Одинаковая длительность" END |
 | Линейная «Этапы по месяцам» | X — month; Y — AVG([handling_days]), AVG([transit_days]) |
 | Комбинированная «Подтверждение оплаты по дням недели» | X — weekday; столбцы — COUNT([order_id]); линия — AVG([approval_hours]) по дополнительной оси |
 
